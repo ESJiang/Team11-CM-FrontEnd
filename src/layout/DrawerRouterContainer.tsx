@@ -6,11 +6,12 @@ import { Button } from "@progress/kendo-react-buttons";
 import { Drawer, DrawerContent } from "@progress/kendo-react-layout";
 import { DrawerSelectEvent } from "@progress/kendo-react-layout/dist/npm/drawer/interfaces/DrawerSelectEvent";
 
-const user = {
-  name: "athelete 1",
+export const user = {
+  name: "e77878",
   img:
     "https://pbs.twimg.com/profile_images/1029805644310827008/wkAPO_XC_400x400.jpg",
 };
+
 
 const items = [
   {

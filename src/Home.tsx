@@ -1,5 +1,5 @@
 import React from "react";
-
+import {user} from "./layout/DrawerRouterContainer";
 export default function Home() {
   return (
     <>
@@ -11,8 +11,8 @@ export default function Home() {
           Today is {new Date().getDate()}/{new Date().getMonth() + 1}/
           {new Date().getFullYear()}
         </p>
-        <p>Athlete name:</p>
-        <p>Other info:</p>
+        <p>Athlete name: {user.name}</p>
+        <p>Other info: </p>
       </div>
       <div style={{ float: "right", width: "10%" }}>
         <a
