@@ -15,8 +15,9 @@ import Loading from "../layout/Loading";
 const renderTooltip = (e: any) => {
   return (
     <div>
-      {e.point ?
-        "$" + e.point.value.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,") : ""}
+      {e.point
+        ? "$" + e.point.value.replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,")
+        : ""}
     </div>
   );
 };
@@ -26,7 +27,7 @@ export default function PerformancePanel() {
   React.useEffect(() => {
     getPerformance().then((results: string[]) => {
       setData(results);
-    })
+    });
   }, []);
 
   return (
@@ -35,7 +36,17 @@ export default function PerformancePanel() {
       <Chart style={{ opacity: data ? "1" : "0" }}>
         <ChartTitle text="Bar chart" />
         <ChartCategoryAxis>
-          <ChartCategoryAxisItem categories={["2014", "2015", "2016", "2017", "2018", "2019", "2020"]} />
+          <ChartCategoryAxisItem
+            categories={[
+              "2014",
+              "2015",
+              "2016",
+              "2017",
+              "2018",
+              "2019",
+              "2020",
+            ]}
+          />
         </ChartCategoryAxis>
         <ChartSeries>
           <ChartSeriesItem type="line" data={data} />
@@ -43,5 +54,5 @@ export default function PerformancePanel() {
         <ChartTooltip render={renderTooltip} />
       </Chart>
     </>
-  )
+  );
 }

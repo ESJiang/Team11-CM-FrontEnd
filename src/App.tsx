@@ -1,6 +1,6 @@
-// npm isntall --save axios
+// npm install --save axios
 import React from "react";
-import {HashRouter, Switch, Route} from "react-router-dom";
+import { HashRouter, Switch, Route } from "react-router-dom";
 import DrawerRouterContainer from "./layout/DrawerRouterContainer";
 import Dashboard from "./Dashboard";
 import Home from "./Home";
@@ -23,4 +23,4 @@ export default function App() {
       </DrawerRouterContainer>
     </HashRouter>
   );
-};
+}

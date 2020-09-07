@@ -17,18 +17,14 @@ const NumberCell = (props: GridCellProps) => {
     finalValue = (startingValue / 1000000000).toFixed(2) + "M";
   }
 
-  return <td>{finalValue}</td>
-}
+  return <td>{finalValue}</td>;
+};
 
 const ChangeCell = (props: GridCellProps) => {
   const field = props.field || "";
   const value = props.dataItem[field];
-  return (
-    <td className={value > 0 ? "change-up" : "change-down"}>
-      {value}%
-    </td>
-  );
-}
+  return <td className={value > 0 ? "change-up" : "change-down"}>{value}%</td>;
+};
 
 export default function PositionsPanel() {
   const [positions, setPositions] = React.useState<Position[]>();
@@ -54,5 +50,5 @@ export default function PositionsPanel() {
         <GridColumn title="Market Cap" field="market_cap" cell={NumberCell} />
       </Grid>
     </>
-  )
+  );
 }

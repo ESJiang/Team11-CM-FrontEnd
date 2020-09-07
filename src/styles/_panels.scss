@@ -1,5 +1,5 @@
 .manager {
-  text-shadow: 2px 2px 0px pink;
+  text-shadow: 2px 2px 0px #FFC0CB;
 }
 
 .manager h2 {
@@ -19,7 +19,7 @@
   height: 50px;
   margin: 10px;
   border-radius: 50%;
-  box-shadow: 0px 0px 0px 5px pink;
+  box-shadow: 0px 0px 0px 5px #FFC0CB;
 }
 .manager-info {
   grid-row: 1;
@@ -50,17 +50,17 @@
 }
 
 .k-icon.k-i-loading {
-  font-size: 50px;
+  font-size: 60px;
   display: inline-block;
   width: 100%;
-  margin-top: 1rem;
+  margin-top: 2rem;
   height: 100%;
 }
-
 
 .k-grid {
   font-size: 0.9rem;
 }
-.k-grid td, .k-grid-header .k-header > .k-link {
+.k-grid td,
+.k-grid-header .k-header > .k-link {
   text-overflow: initial;
 }
