@@ -1,7 +1,7 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { useHistory } from "react-router";
-import "../styles/_dropdown.scss"
+import "../styles/_dropdown.scss";
 import { Button } from "@progress/kendo-react-buttons";
 import { Drawer, DrawerContent } from "@progress/kendo-react-layout";
 import { DrawerSelectEvent } from "@progress/kendo-react-layout/dist/npm/drawer/interfaces/DrawerSelectEvent";
@@ -11,7 +11,6 @@ export const user = {
   img:
     "https://pbs.twimg.com/profile_images/1029805644310827008/wkAPO_XC_400x400.jpg",
 };
-
 
 const items = [
   {
@@ -83,7 +82,7 @@ const DrawerRouterContainer = (props: React.PropsWithChildren<any>) => {
                   }}
                 />
                 <span className="title">
-                  Garmin Dashboard
+                  <a className="a" href="/">Garmin Dashboard</a>
                   <span className="divider">|</span>
                   <span className="fund">{items[selectedId].text}</span>
                 </span>
