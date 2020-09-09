@@ -37,7 +37,7 @@ export default function Home() {
           width: "100%",
           margin: "auto",
           overflow: "hidden",
-          height: "580px",
+          //height: "580px",
         }}
         src="/home_page.jpg"
         width="100%"
