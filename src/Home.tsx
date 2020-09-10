@@ -1,5 +1,6 @@
 import React from "react";
-import {user} from "./layout/DrawerRouterContainer";
+import { user } from "./layout/DrawerRouterContainer";
+import "./styles/_home.scss";
 export default function Home() {
   return (
     <>
@@ -27,22 +28,13 @@ export default function Home() {
           />
         </a>
       </div>
-      <img
-        style={{
-          display: "block",
-          position: "absolute",
-          left: 0,
-          right: 0,
-          bottom: 0,
-          width: "100%",
-          margin: "auto",
-          overflow: "hidden",
-          //height: "580px",
-        }}
-        src="/home_page.jpg"
-        width="100%"
-        alt="Garmin_Dashboard_Homepage"
-      />
+      <div className="xss"> {/* can be replaced by id if you nominate # in scss */}
+        <img src="/1.jpg" alt="Garmin_Dashboard_Homepage" />
+        <img src="/2.jpg" alt="Garmin_Dashboard_Homepage" />
+        <img src="/3.jpg" alt="Garmin_Dashboard_Homepage" />
+        <img src="/4.jpg" alt="Garmin_Dashboard_Homepage" />
+        <img src="/5.jpg" alt="Garmin_Dashboard_Homepage" />
+      </div>
     </>
   );
 }

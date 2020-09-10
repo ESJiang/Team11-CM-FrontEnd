@@ -82,7 +82,9 @@ const DrawerRouterContainer = (props: React.PropsWithChildren<any>) => {
                   }}
                 />
                 <span className="title">
-                  <a className="a" href="/">Garmin Dashboard</a>
+                  <a className="a" href="/">
+                    Garmin Dashboard
+                  </a>
                   <span className="divider">|</span>
                   <span className="fund">{items[selectedId].text}</span>
                 </span>
