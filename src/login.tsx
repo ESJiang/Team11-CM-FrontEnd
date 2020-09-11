@@ -3,6 +3,7 @@ import { useHistory } from "react-router";
 import { Form, Field, FormElement } from "@progress/kendo-react-form";
 import { Error } from "@progress/kendo-react-labels";
 import { Input } from "@progress/kendo-react-inputs";
+import "./styles/_login.scss";
 //import { connectBackends } from "./services/dataService";
 
 const newInput = (fieldRenderProps) => {
@@ -10,25 +11,34 @@ const newInput = (fieldRenderProps) => {
     return (
         <div>
             <Input {...others} />
-            {fieldRenderProps.visited && fieldRenderProps.validationMessage && <Error>{validationMessage}</Error>}
+            {fieldRenderProps.visited && fieldRenderProps.validationMessage && (
+                <Error>{validationMessage}</Error>
+            )}
         </div>
     );
 };
 
 export default function Login() {
     const history = useHistory();
-    const dologin=(e)=>{
-        history.push('/Home')
+    const dologin = (e) => {
+        alert(JSON.stringify(e, null, 2));
+        history.push("/Home");
     };
     return (
         <Form
             //onSubmit={(e) => alert(JSON.stringify(e, null, 2))}
             onSubmit={dologin}
             render={(formRenderProps) => (
-                <FormElement style={{ maxWidth: 1000 }}>
+                <FormElement
+                    style={{
+                        backgroundColor: "#C7EDCC",
+                        textAlign: "center",
+                        maxWidth: 3000,
+                    }}
+                >
                     <fieldset className={"k-form-fieldset"}>
-                        <legend className={"k-form-legend"}>
-                            Please fill in the fields:
+                        <legend>
+                            <i>Please fill in the fields:</i>
                         </legend>
                         <div className="mb-3">
                             <Field
@@ -63,6 +73,13 @@ export default function Login() {
                         >
                             Submit
                         </button>
+                    </div>
+                    <div className="xss">
+                        <img src="/6.jpg" alt="login_page" />
+                        <img src="/7.jpg" alt="login_page" />
+                        <img src="/8.jpg" alt="login_page" />
+                        <img src="/9.jpg" alt="login_page" />
+                        <img src="/10.jpg" alt="login_page" />
                     </div>
                 </FormElement>
             )}

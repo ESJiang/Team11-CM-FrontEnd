@@ -8,8 +8,7 @@ import { DrawerSelectEvent } from "@progress/kendo-react-layout/dist/npm/drawer/
 
 export const user = {
   name: "Wombat",
-  img:
-    "https://avatars2.githubusercontent.com/u/34351424?s=460&v=4",
+  img: "https://avatars2.githubusercontent.com/u/34351424?s=460&v=4",
 };
 
 const items = [
@@ -30,7 +29,7 @@ const items = [
     icon: "k-i-dribbble",
     route: "/Dashboard",
     children: null,
-  }
+  },
 ];
 
 const DrawerRouterContainer = (props: React.PropsWithChildren<any>) => {

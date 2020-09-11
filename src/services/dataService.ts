@@ -23,7 +23,5 @@ export function getPositions(): Promise<any> {
 }
 
 export function connectBackends(): Promise<any> {
-    return fetch(
-        ""
-    ).then((response) => response.json());
+    return fetch("").then((response) => response.json());
 }
