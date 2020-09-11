@@ -1,10 +1,11 @@
 import React from "react";
 import { user } from "./layout/DrawerRouterContainer";
 import "./styles/_home.scss";
+
 export default function Home() {
   return (
     <>
-      <div style={{ float: "left", width: "90%" }}>
+      <div style={{ float: "left", width: "75%" }}>
         <h2>
           <b>Welcome to Garmin Dashboard</b>
         </h2>
@@ -15,9 +16,9 @@ export default function Home() {
         <p>Athlete name: {user.name}</p>
         <p>Other info: </p>
       </div>
-      <div style={{ float: "right", width: "10%" }}>
+      <div style={{ float: "right", width: "25%" }}>
         <a
-          href="https://connect.garmin.com/signin"
+          href="/dashboard"
           target="_blank"
           rel="noopener noreferrer nofollow"
         >

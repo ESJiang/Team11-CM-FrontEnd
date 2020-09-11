@@ -21,3 +21,9 @@ export function getPositions(): Promise<any> {
         "https://demoapis.com/sample/finance/positions"
     ).then((response) => response.json());
 }
+
+export function connectBackends(): Promise<any> {
+    return fetch(
+        ""
+    ).then((response) => response.json());
+}

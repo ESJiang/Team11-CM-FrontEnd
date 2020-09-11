@@ -1,15 +1,15 @@
 // npm install --save axios
 import React from "react";
-import { HashRouter, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import DrawerRouterContainer from "./layout/DrawerRouterContainer";
 import Dashboard from "./Dashboard";
 import Home from "./Home";
-import Login from "./login";
+import Login from "./Login";
 import "./styles/_App.scss";
 
 export default function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <DrawerRouterContainer>
         <div className="page-container">
           <Switch>
@@ -25,6 +25,6 @@ export default function App() {
           </Switch>
         </div>
       </DrawerRouterContainer>
-    </HashRouter>
+    </BrowserRouter>
   );
 }

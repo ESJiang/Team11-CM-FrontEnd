@@ -7,14 +7,14 @@ import { Drawer, DrawerContent } from "@progress/kendo-react-layout";
 import { DrawerSelectEvent } from "@progress/kendo-react-layout/dist/npm/drawer/interfaces/DrawerSelectEvent";
 
 export const user = {
-  name: "e77878",
+  name: "Wombat",
   img:
-    "https://pbs.twimg.com/profile_images/1029805644310827008/wkAPO_XC_400x400.jpg",
+    "https://avatars2.githubusercontent.com/u/34351424?s=460&v=4",
 };
 
 const items = [
   {
-    text: "login",
+    text: "Login",
     icon: "k-i-login",
     route: "/",
     children: null,
@@ -42,7 +42,6 @@ const DrawerRouterContainer = (props: React.PropsWithChildren<any>) => {
     setSelectedId(e.itemIndex);
     setExpanded(false);
     history.push(e.itemTarget.props.route);
-    // this.props.history.push(e.itemTarget.props.route);
   };
 
   return (
@@ -76,7 +75,7 @@ const DrawerRouterContainer = (props: React.PropsWithChildren<any>) => {
                   }}
                 />
                 <span className="title">
-                  <a className="a" href="/">
+                  <a className="a" href="/Home">
                     Garmin Dashboard
                   </a>
                   <span className="divider">|</span>
@@ -86,7 +85,8 @@ const DrawerRouterContainer = (props: React.PropsWithChildren<any>) => {
               <div className="dropdown">
                 <img className="dropbtn" alt={user.name} src={user.img} />
                 <div className="dropdown-content">
-                  <a href="https://connect.garmin.com/signin">{user.name}</a>
+                  {/*<a href="https://connect.garmin.com/signin">{user.name}</a>*/}
+                  <p>{user.name}</p>
                 </div>
               </div>
             </h1>
