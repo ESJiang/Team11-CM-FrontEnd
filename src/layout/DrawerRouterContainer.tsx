@@ -14,9 +14,15 @@ export const user = {
 
 const items = [
   {
+    text: "login",
+    icon: "k-i-login",
+    route: "/",
+    children: null,
+  },
+  {
     text: "Home",
     icon: "k-i-home",
-    route: "/",
+    route: "/Home",
     children: null,
   },
   {
@@ -24,19 +30,7 @@ const items = [
     icon: "k-i-dribbble",
     route: "/Dashboard",
     children: null,
-  },
-  {
-    text: "additional1",
-    icon: "k-i-heart",
-    route: "/Dashboard",
-    children: null,
-  },
-  {
-    text: "additional2",
-    icon: "k-i-paint",
-    route: "/Dashboard",
-    children: null,
-  },
+  }
 ];
 
 const DrawerRouterContainer = (props: React.PropsWithChildren<any>) => {
