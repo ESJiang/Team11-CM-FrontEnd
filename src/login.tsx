@@ -21,12 +21,13 @@ const newInput = (fieldRenderProps) => {
 export default function Login() {
     const history = useHistory();
     const dologin = (e) => {
-        alert(JSON.stringify(e, null, 2));
+        //connectBackends(url, JSON.stringify(e), history)
+        alert(JSON.stringify(e));
         history.push("/Home");
     };
     return (
         <Form
-            //onSubmit={(e) => alert(JSON.stringify(e, null, 2))}
+            //onSubmit={dologin}
             onSubmit={dologin}
             render={(formRenderProps) => (
                 <FormElement
