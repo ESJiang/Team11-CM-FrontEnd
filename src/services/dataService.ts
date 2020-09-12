@@ -30,10 +30,10 @@ export default function connectBackends(url, form_data, history): Promise<any> {
             "Content-Type": "application/json",
         },
         credentials: "same-origin",
-        mode: 'cors',
-        redirect: 'follow',
-        referrer: 'no-referrer',
-        referrerPolicy: 'origin-when-cross-origin'
+        mode: "cors",
+        redirect: "follow",
+        referrer: "no-referrer",
+        referrerPolicy: "origin-when-cross-origin",
     })
         .then((response) => {
             if (response.status >= 200 && response.status < 300) {

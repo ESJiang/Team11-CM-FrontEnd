@@ -4,7 +4,7 @@ import { Form, Field, FormElement } from "@progress/kendo-react-form";
 import { Error } from "@progress/kendo-react-labels";
 import { Input } from "@progress/kendo-react-inputs";
 import "./styles/_login.scss";
-//import { connectBackends } from "./services/dataService";
+import connectBackends  from "./services/dataService";
 
 const newInput = (fieldRenderProps) => {
     const { validationMessage, visited, ...others } = fieldRenderProps;
@@ -21,7 +21,7 @@ const newInput = (fieldRenderProps) => {
 export default function Login() {
     const history = useHistory();
     const dologin = (e) => {
-        //connectBackends(url, JSON.stringify(e), history)
+        connectBackends("https://coachingmate-backend2020.herokuapp.com/login?username=saul&password=1234", JSON.stringify(e), history)
         alert(JSON.stringify(e));
         history.push("/Home");
     };
@@ -43,9 +43,9 @@ export default function Login() {
                         </legend>
                         <div className="mb-3">
                             <Field
-                                name={"Username"}
+                                name={"username"}
                                 component={newInput}
-                                label={"Username"}
+                                label={"username"}
                                 validator={(value) =>
                                     new RegExp(/Wombat/).test(value)
                                         ? ""
@@ -55,9 +55,9 @@ export default function Login() {
                         </div>
                         <div className="mb-3">
                             <Field
-                                name={"Password"}
+                                name={"password"}
                                 component={newInput}
-                                label={"Password"}
+                                label={"password"}
                                 validator={(value) =>
                                     new RegExp(/abc/).test(value)
                                         ? ""
