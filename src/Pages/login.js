@@ -25,8 +25,8 @@ class Login extends Component {
 
         axios({
                 method: "post",
-                // url: "http://localhost:3000/login",
-                url:"https://coachingmate-backend2020.herokuapp.com/login",
+                url: "http://localhost:8080/login",
+                // url:"https://coachingmate-backend2020.herokuapp.com/login",
                 headers: {
                     // "Accept": 'application/json',
                     // "Content-Type": "application/json",
@@ -42,7 +42,11 @@ class Login extends Component {
             }
         )
         .then((res)=>{
-            res.set('Access-Control-Allow-Origin','*');
+            // res.set('Access-Control-Allow-Origin','*');
+            res.header("Access-Control-Allow-Origin", "*");
+            res.header("Access-Control-Allow-Credentials", "true");
+            res.header("Access-Control-Allow-Methods", "GET,POST");
+            res.header('Access-Control-Allow-Headers', 'Origin, Content-Type');
             console.log("response",res)
         })
         .catch(error=>
