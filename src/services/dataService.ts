@@ -30,21 +30,22 @@ export default function connectBackends(url, form_data, history): Promise<any> {
         headers: {
             "Accept": 'application/json',
             "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
             //'content-type' : 'application/x-www-form-urlencoded',
-            //'API-Key': 'secret'
+            'API-Key': 'secret'
         },
         credentials: "same-origin",
-        mode: "no-cors",
+        mode: "cors",
         redirect: "follow",
         referrer: "no-referrer",
         referrerPolicy: "origin-when-cross-origin"
     })
         .then((response) => {
             if (response.status === 200) {
-                console.log(response.json());
+                console.log(response.text());
                 //window.location.reload();
-                //history.push("/Home");
-                //return response.json();
+                history.push("/Home");
+                return response.json();
             } else {
                 console.log("error occurs");
             }

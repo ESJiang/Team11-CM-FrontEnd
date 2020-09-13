@@ -2,6 +2,7 @@
   "name": "garmin-dashboard",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8080/login",
   "dependencies": {
     "3": "^2.1.0",
     "-": "0.0.1",
@@ -32,6 +33,7 @@
     "axios": "^0.20.0",
     "bootstrap": "^4.4.1",
     "hammerjs": "^2.0.8",
+    "http-proxy-middleware": "^1.0.5",
     "jquery": "^3.5.1",
     "mobx": "^5.15.6",
     "mobx-react": "^6.3.0",
