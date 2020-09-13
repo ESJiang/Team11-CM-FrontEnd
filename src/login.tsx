@@ -21,9 +21,12 @@ const newInput = (fieldRenderProps) => {
 export default function Login() {
     const history = useHistory();
     const dologin = (e) => {
-        connectBackends("https://coachingmate-backend2020.herokuapp.com/login?username=saul&password=1234", JSON.stringify(e), history)
-        alert(JSON.stringify(e));
-        history.push("/Home");
+        let formData = new FormData();
+        formData.append('username', e.username+'');
+        formData.append('password', e.password+'');
+        connectBackends("https://coachingmate-backend2020.herokuapp.com/login", formData, history)
+        //alert(JSON.stringify(e.username));
+        //history.push("/Home");
     };
     return (
         <Form
