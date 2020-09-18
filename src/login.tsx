@@ -21,12 +21,13 @@ const newInput = (fieldRenderProps) => {
 export default function Login() {
     const history = useHistory();
     const dologin = (e) => {
-        let formData = new FormData();
-        formData.append('username', e.username+'');
-        formData.append('password', e.password+'');
-        connectBackends("https://coachingmate-backend2020.herokuapp.com/login", formData, history)
+        //let formData = new FormData();
+        //formData.append('username', e.username+'');
+        //formData.append('password', e.password+'');
+        //connectBackends("https://coachingmate-backend2020.herokuapp.com/login", formData, history)
+        connectBackends('http://localhost:8080/login?username='+e.username+'&password='+e.password, history)
         //alert(JSON.stringify(e.username));
-        //history.push("/Home");
+        history.push("/Home");
     };
     return (
         <Form
@@ -62,7 +63,7 @@ export default function Login() {
                                 component={newInput}
                                 label={"password"}
                                 validator={(value) =>
-                                    new RegExp(/abc/).test(value)
+                                    new RegExp(/123/).test(value)
                                         ? ""
                                         : "Please enter a valid Password."
                                 }

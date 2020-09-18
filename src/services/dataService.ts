@@ -22,33 +22,39 @@ export function getPositions(): Promise<any> {
     ).then((response) => response.json());
 }
 
-export default function connectBackends(url, form_data, history): Promise<any> {
+export default function connectBackends(url, history): Promise<any> {
     return fetch(url, {
         method: "POST",
         //body: JSON.stringify(form_data),
-        body: form_data,
+
         headers: {
-            "Accept": 'application/json',
-            "Content-Type": "application/json",
+            'Accept': "application/json",
+            "Content-Type": "application/json, charset=UTF-8",
             "Access-Control-Allow-Origin": "*",
+            'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+            'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS'
             //'content-type' : 'application/x-www-form-urlencoded',
-            'API-Key': 'secret'
+            //'API-Key': 'secret'
         },
-        credentials: "same-origin",
+        credentials: "include",
         mode: "cors",
-        redirect: "follow",
-        referrer: "no-referrer",
-        referrerPolicy: "origin-when-cross-origin"
+        //redirect: "follow",
+        //referrer: "no-referrer-when-downgrade",
+        //referrerPolicy: "origin-when-cross-origin",
     })
-        .then((response) => {
-            if (response.status === 200) {
-                console.log(response.text());
-                //window.location.reload();
-                history.push("/Home");
-                return response.json();
-            } else {
-                console.log("error occurs");
+    .then((res) => res.json())
+    .then((res) => {
+            if (res.ok) {
+                console.log(res.text());
+            }
+            else
+            {
+                console.log(res)
+                //console.log("error occurs");
             }
         })
         .catch((err) => err);
+//        .then((res) => res.json())
+//        .then((res) => console.log(res))
+//        .catch((err) => console.log("error occurs：", err));
 }
