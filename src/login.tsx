@@ -2,9 +2,10 @@ import React from "react";
 import { useHistory } from "react-router";
 import { Form, Field, FormElement } from "@progress/kendo-react-form";
 import { Error } from "@progress/kendo-react-labels";
+import { user } from "./layout/DrawerRouterContainer";
 import { Input } from "@progress/kendo-react-inputs";
+import {connectBackends}  from "./services/dataService";
 import "./styles/_login.scss";
-import connectBackends  from "./services/dataService";
 
 const newInput = (fieldRenderProps) => {
     const { validationMessage, visited, ...others } = fieldRenderProps;
@@ -21,12 +22,9 @@ const newInput = (fieldRenderProps) => {
 export default function Login() {
     const history = useHistory();
     const dologin = (e) => {
-        let formData = new FormData();
-        formData.append('username', e.username+'');
-        formData.append('password', e.password+'');
-        connectBackends("https://coachingmate-backend2020.herokuapp.com/login", formData, history)
-        //alert(JSON.stringify(e.username));
-        //history.push("/Home");
+        user.name=connectBackends('http://localhost:8080/login?username='+e.username+'&password='+e.password, history)['username']
+        //user.name = '123'
+        history.push("/Home");
     };
     return (
         <Form
@@ -50,7 +48,7 @@ export default function Login() {
                                 component={newInput}
                                 label={"username"}
                                 validator={(value) =>
-                                    new RegExp(/Wombat/).test(value)
+                                    new RegExp(/a/).test(value)
                                         ? ""
                                         : "Please enter a valid Username."
                                 }
@@ -60,9 +58,10 @@ export default function Login() {
                             <Field
                                 name={"password"}
                                 component={newInput}
+                                type={"password"}
                                 label={"password"}
                                 validator={(value) =>
-                                    new RegExp(/abc/).test(value)
+                                    new RegExp(/1/).test(value)
                                         ? ""
                                         : "Please enter a valid Password."
                                 }

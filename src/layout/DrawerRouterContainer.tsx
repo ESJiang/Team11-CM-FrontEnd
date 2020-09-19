@@ -6,8 +6,8 @@ import { Button } from "@progress/kendo-react-buttons";
 import { Drawer, DrawerContent } from "@progress/kendo-react-layout";
 import { DrawerSelectEvent } from "@progress/kendo-react-layout/dist/npm/drawer/interfaces/DrawerSelectEvent";
 
-export const user = {
-  name: "Wombat",
+export let user = {
+  name: "",
   img: "https://avatars2.githubusercontent.com/u/34351424?s=460&v=4",
 };
 

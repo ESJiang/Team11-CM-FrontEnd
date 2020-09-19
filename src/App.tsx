@@ -1,4 +1,3 @@
-// npm install --save axios
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import DrawerRouterContainer from "./layout/DrawerRouterContainer";
