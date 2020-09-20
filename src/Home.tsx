@@ -2,6 +2,7 @@ import React from "react";
 import { user } from "./layout/DrawerRouterContainer";
 import "./styles/_home.scss";
 
+user.name="abc"
 export default function Home() {
     return (
         <>
