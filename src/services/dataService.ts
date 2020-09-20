@@ -26,11 +26,11 @@ export function getPositions(): Promise<any>
         ).then((response) => response.json());
 }
 
-export async function connectBackends(url, history)
+export function connectBackends(url)
 {
-    try
-    {
-        let result = await fetch(url,
+
+    return new Promise((resolve,reject)=>{
+        fetch(url,
         {
             method: "POST",
             headers:
@@ -44,13 +44,14 @@ export async function connectBackends(url, history)
             credentials: "include",
             mode: "cors",
         })
-        .then((res) => res.json());
-        console.log(result['username'])
-        return result;
-    }
-    catch(e)
-    {
-        console.log(e);
-        throw e;
-    }
+        .then((res) => res.json())
+        .then((jsondata)=>{
+            console.log(jsondata)
+            resolve(jsondata)
+        })
+        .catch((error)=>{
+            console.error(error);
+            reject("rejected")
+        })
+    })
 }
