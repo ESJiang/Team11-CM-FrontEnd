@@ -1,48 +1,63 @@
 import React from "react";
 import { user } from "./layout/DrawerRouterContainer";
 import "./styles/_home.scss";
+import { Button } from 'react-bootstrap';
+import axios from 'axios';
 
-user.name="abc"
-export default function Home() {
-    return (
-        <>
-            <div
-                style={{
-                    backgroundColor: "#C7EDCC",
-                    float: "left",
-                    width: "75%",
-                }}
-            >
-                <h2>
-                    <b>Welcome to Garmin Dashboard</b>
-                </h2>
-                <p>
-                    Today is {new Date().getDate()}/{new Date().getMonth() + 1}/
-                    {new Date().getFullYear()}
-                </p>
-                <p>Athlete name: {user.name}</p>
-                <p>Other info: </p>
-            </div>
-            <div style={{ float: "right", width: "25%" }}>
-                <a
-                    href="/dashboard"
-                    target="_blank"
-                    rel="noopener noreferrer nofollow"
+export default class Home extends React.Component{
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+           
+        };
+    }
+    
+    handlePermission = () => {
+    
+        // axios({
+        //   method: "get",
+        //   url: `/auth/requestToken/`,
+        // }).then((res) => {
+        //     this.setState({
+        //         customer_id: res.data._id,
+
+        //     });
+        // })
+    }
+
+    render(){
+        return (
+            <div>
+                <div
+                    className="p-md-4 rounded-lg welcome-wrapper"
+                    style={{
+                        backgroundColor: "#C7EDCC",
+                    }}
                 >
-                    <img
-                        style={{ width: "100%", display: "inline-block" }}
-                        src="/logo_garmin.jpg"
-                        alt="Garmin_Connect_API"
-                    />
-                </a>
+                    <h2>
+                        <b>Welcome to Garmin Dashboard</b>
+                    </h2>
+                    <h4>
+                    {new Date().getDate()}/{new Date().getMonth() + 1}/
+                        {new Date().getFullYear()}
+                    </h4>
+
+                    <h4>Would you like to give permission to Garmin Connect?</h4>
+                    <Button variant="success"
+                        onClick={this.handlePermission}
+                        >
+                        Sure, connect now!
+                    </Button>{' '}
+                    <Button variant="secondary"
+                        href="/">
+                        No, will try later!
+                    </Button>{' '}
+                   
+                
+                    
+                </div>
+
             </div>
-            <div className="xss">
-                <img src="/1.jpg" alt="Garmin_Dashboard_Homepage" />
-                <img src="/2.jpg" alt="Garmin_Dashboard_Homepage" />
-                <img src="/3.jpg" alt="Garmin_Dashboard_Homepage" />
-                <img src="/4.jpg" alt="Garmin_Dashboard_Homepage" />
-                <img src="/5.jpg" alt="Garmin_Dashboard_Homepage" />
-            </div>
-        </>
-    );
-}
+        );
+}}
