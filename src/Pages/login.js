@@ -77,6 +77,7 @@ class Login extends Component {
                 /><br></br>
                 <button type="submit"
                 onClick={this.handleSubmit}> Log in </button>
+                <p>Hello, now you are {this.state.username}</p>
             </div>
         )
     }
