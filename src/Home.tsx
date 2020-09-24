@@ -55,7 +55,7 @@ export default class Home extends React.Component <{}, { username: string, redir
     render(){
         return (
             <div>
-                 <img className="background-pic" src="/3.jpg" alt="bgPic"/>
+                 <img className="rounded-lg background-pic" src="/3.jpg" alt="bgPic"/>
                 <div
                     className="p-md-4 rounded-lg welcome-wrapper"
                     style={{
