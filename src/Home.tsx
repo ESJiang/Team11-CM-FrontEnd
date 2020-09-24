@@ -5,12 +5,13 @@ import { Button } from 'react-bootstrap';
 import axios from 'axios';
 import Qs from 'qs';
 
-export default class Home extends React.Component <{}, { username: string}>{
+export default class Home extends React.Component <{}, { username: string, redirect: string}>{
     
     constructor(props) {
         super(props);
         this.state = {
            username:"",
+           redirect:"",
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -33,8 +34,10 @@ export default class Home extends React.Component <{}, { username: string}>{
                 username: Qs.stringify(this.state.username),
             },
         }).then((res)=>{
-            console.log(res.headers)
+            // console.log(res.headers)
             console.log("URL", res)
+            console.log("data",res.data.url)
+            this.setState({redirect: res.data.url })
             // res.headers("Access-Control-Allow-Origin", "*");
             // res.headers("Access-Control-Allow-Credentials", "true");
             // res.headers("Access-Control-Allow-Methods", "GET,POST");
@@ -76,6 +79,7 @@ export default class Home extends React.Component <{}, { username: string}>{
                     <h4>Would you like to give permission to Garmin Connect?</h4>
                     <Button variant="success"
                         onClick={this.handlePermission}
+                        href={this.state.redirect}
                         >
                         Sure, connect now!
                     </Button>{' '}
@@ -83,8 +87,6 @@ export default class Home extends React.Component <{}, { username: string}>{
                         href="/">
                         No, will try later!
                     </Button>{' '}
-                   
-                
                     
                 </div>
 
