@@ -3,23 +3,22 @@ import React, {Component}  from "react";
 import "./styles/_home.scss";
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
-import { updateShorthandPropertyAssignment } from "typescript";
+import Qs from 'qs';
 
-export default class Home extends React.Component <{}, { username: string; url_Send: string}>{
+export default class Home extends React.Component <{}, { username: string}>{
     
     constructor(props) {
         super(props);
         this.state = {
            username:"",
-           url_Send: "",
         };
 
         this.handleChange = this.handleChange.bind(this);
+        this.handlePermission = this.handlePermission.bind(this);
     }
-
-
     
     handlePermission = () => {
+        console.log(this.state.username)
         axios({
             method: "get",
             url: "http://localhost:8080/auth/requestToken",
@@ -28,20 +27,18 @@ export default class Home extends React.Component <{}, { username: string; url_S
                 "Access-Control-Allow-Origin": "*",
                 "Accept": 'application/json',
                 "Content-Type": "application/json",
-                "Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE, PUT"
+                "Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE, PUT",
             },
             data:{
-                username: this.state.username,
+                username: Qs.stringify(this.state.username),
             },
-            
-           
         }).then((res)=>{
             console.log(res.headers)
-            res.headers("Access-Control-Allow-Origin", "*");
-            res.headers("Access-Control-Allow-Credentials", "true");
-            res.headers("Access-Control-Allow-Methods", "GET,POST");
-            res.headers('Access-Control-Allow-Headers', 'Origin, Content-Type');
             console.log("URL", res)
+            // res.headers("Access-Control-Allow-Origin", "*");
+            // res.headers("Access-Control-Allow-Credentials", "true");
+            // res.headers("Access-Control-Allow-Methods", "GET,POST");
+            // res.headers('Access-Control-Allow-Headers', 'Origin, Content-Type');
         })
            .catch(error=>
             console.log("error", error)) 
