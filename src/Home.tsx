@@ -31,7 +31,7 @@ export default class Home extends React.Component <{}, { username: string; url_S
                 "Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE, PUT"
             },
             data:{
-                // username: this.state.username,
+                username: this.state.username,
             },
             
            
