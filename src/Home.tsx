@@ -53,7 +53,7 @@ export default class Home extends React.Component <{}, { username: string, redir
 
     render(){
         return (
-            <div>
+            <div >
                 <div
                     className="p-md-4 rounded-lg welcome-wrapper"
                     style={{
@@ -70,7 +70,7 @@ export default class Home extends React.Component <{}, { username: string, redir
                     </h4>
                     <br></br>
                     
-                    <h4>Please provide a unique username!</h4>
+                    <h4>Please input your unique username!</h4>
                     <input
                         className="button-home"
                         name="username"
