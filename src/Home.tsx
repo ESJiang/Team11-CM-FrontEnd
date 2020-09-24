@@ -1,29 +1,54 @@
-import React from "react";
-import { user } from "./layout/DrawerRouterContainer";
+import React, {Component}  from "react";
+// import { user } from "./layout/DrawerRouterContainer";
 import "./styles/_home.scss";
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
+import { updateShorthandPropertyAssignment } from "typescript";
 
-export default class Home extends React.Component{
+export default class Home extends React.Component <{}, { username: string; url_Send: string}>{
     
     constructor(props) {
         super(props);
         this.state = {
-           
+           username:"",
+           url_Send: "",
         };
+
+        this.handleChange = this.handleChange.bind(this);
     }
+
+
     
     handlePermission = () => {
-    
-        // axios({
-        //   method: "get",
-        //   url: `/auth/requestToken/`,
-        // }).then((res) => {
-        //     this.setState({
-        //         customer_id: res.data._id,
+        axios({
+            method: "get",
+            url: "http://localhost:8080/auth/requestToken",
 
-        //     });
-        // })
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Accept": 'application/json',
+                "Content-Type": "application/json",
+                "Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE, PUT"
+            },
+            data:{
+                // username: this.state.username,
+            },
+            
+           
+        }).then((res)=>{
+            console.log(res.headers)
+            res.headers("Access-Control-Allow-Origin", "*");
+            res.headers("Access-Control-Allow-Credentials", "true");
+            res.headers("Access-Control-Allow-Methods", "GET,POST");
+            res.headers('Access-Control-Allow-Headers', 'Origin, Content-Type');
+            console.log("URL", res)
+        })
+           .catch(error=>
+            console.log("error", error)) 
+    }
+
+    handleChange (e) {
+        this.setState({username: e.target.value})
     }
 
     render(){
@@ -42,6 +67,14 @@ export default class Home extends React.Component{
                     {new Date().getDate()}/{new Date().getMonth() + 1}/
                         {new Date().getFullYear()}
                     </h4>
+                    
+                    <h4>Please provide a unique username!</h4>
+                    <input
+                        name="username"
+                        type="username"
+                        onChange={this.handleChange}
+                        value={this.state.username}
+                    />
 
                     <h4>Would you like to give permission to Garmin Connect?</h4>
                     <Button variant="success"
