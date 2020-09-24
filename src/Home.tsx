@@ -60,6 +60,7 @@ export default class Home extends React.Component <{}, { username: string, redir
                         backgroundColor: "#C7EDCC",
                     }}
                 >
+                    <div className="m-4">
                     <h2>
                         <b>Welcome to Garmin Dashboard</b>
                     </h2>
@@ -67,26 +68,41 @@ export default class Home extends React.Component <{}, { username: string, redir
                     {new Date().getDate()}/{new Date().getMonth() + 1}/
                         {new Date().getFullYear()}
                     </h4>
+                    <br></br>
                     
                     <h4>Please provide a unique username!</h4>
                     <input
+                        className="button-home"
                         name="username"
                         type="username"
                         onChange={this.handleChange}
                         value={this.state.username}
-                    />
+                    /><br></br><br></br>
+                    
 
-                    <h4>Would you like to give permission to Garmin Connect?</h4>
-                    <Button variant="success"
-                        onClick={this.handlePermission}
-                        href={this.state.redirect}
-                        >
-                        Sure, connect now!
-                    </Button>{' '}
-                    <Button variant="secondary"
-                        href="/">
-                        No, will try later!
-                    </Button>{' '}
+                    <h4 >Would you like to give permission to Garmin Connect?</h4>
+                    <div className="row">
+                        <div className="col">
+                            <Button
+                                className="button-home"
+                                variant="success"
+                                onClick={this.handlePermission}
+                                href={this.state.redirect}
+                            >
+                                Sure, connect now!
+                            </Button>
+                        </div>
+                        <div className="col">
+                            <Button 
+                                className="button-home"
+                                variant="secondary"
+                                href="/">
+                                No, will try later!
+                            </Button>
+                        </div>
+                    </div>
+
+                    </div>
                     
                 </div>
 
