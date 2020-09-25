@@ -5,11 +5,12 @@ import "../styles/_dropdown.scss";
 import { Button } from "@progress/kendo-react-buttons";
 import { Drawer, DrawerContent } from "@progress/kendo-react-layout";
 import { DrawerSelectEvent } from "@progress/kendo-react-layout/dist/npm/drawer/interfaces/DrawerSelectEvent";
+import { CustomNodeJsGlobal } from "../data/models";
 
-export let user = {
-  name: "",
-  img: "https://avatars2.githubusercontent.com/u/34351424?s=460&v=4",
-};
+declare var global: CustomNodeJsGlobal;
+
+global.name = ''
+global.img_url = 'https://avatars2.githubusercontent.com/u/34351424?s=460&v=4'
 
 const items = [
   {
@@ -82,10 +83,9 @@ const DrawerRouterContainer = (props: React.PropsWithChildren<any>) => {
                 </span>
               </span>
               <div className="dropdown">
-                <img className="dropbtn" alt={user.name} src={user.img} />
+                <img className="dropbtn" alt={global.name} src={global.img_url} />
                 <div className="dropdown-content">
-                  {/*<a href="https://connect.garmin.com/signin">{user.name}</a>*/}
-                  <p>{user.name}</p>
+                  <a href="https://connect.garmin.com/signin">{global.name}</a>
                 </div>
               </div>
             </h1>
