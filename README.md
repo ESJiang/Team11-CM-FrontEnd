@@ -6,3 +6,6 @@ This the master branch of our project.
 ## Available Scripts
 
 In the project directory, you can run:
+## npm start
+
+to start this project.
