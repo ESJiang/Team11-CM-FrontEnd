@@ -30,14 +30,9 @@ export default class Home extends Component <{}, { username: string, redirect: s
                 username: Qs.stringify(this.state.username),
             },
         }).then((res)=>{
-            // console.log(res.headers)
             console.log("URL", res)
             console.log("data",res.data.url)
             this.setState({redirect: res.data.url })
-            // res.headers("Access-Control-Allow-Origin", "*");
-            // res.headers("Access-Control-Allow-Credentials", "true");
-            // res.headers("Access-Control-Allow-Methods", "GET,POST");
-            // res.headers('Access-Control-Allow-Headers', 'Origin, Content-Type');
         })
            .catch(error=>
             console.log("error", error))

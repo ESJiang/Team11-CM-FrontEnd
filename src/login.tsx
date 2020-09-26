@@ -51,7 +51,7 @@ export default class Login extends React.Component<{},value> {
         .catch((error)=>{
             console.error(error);
         })
-        //window.location.href="/Home"
+        window.location.href="/Home"
     }
 
     componentDidUpdate(){
