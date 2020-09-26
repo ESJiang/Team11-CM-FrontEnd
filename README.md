@@ -1,7 +1,7 @@
 ## Project Name & Pitch
 Team11-CM-FrontEnd
 
-This is a software project of subject COMP90082 at The University of Melbourne. The repository aims to design a single front-end and connect the backend and do data visualization. This project was bootstrapped with Create React App and built with Kendo framework. This the master branch of our project.
+This is a software project of subject COMP90082 at The University of Melbourne. The repository aims to design a single front-end and do data visualization from the back-end. This project was bootstrapped with Create React App and built with Kendo framework. This the master branch of our project.
 
 
 ## Project Status
