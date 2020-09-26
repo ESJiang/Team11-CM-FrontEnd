@@ -13,7 +13,7 @@ This project is currently in development.
 3. User can choose to connect the Garmin watch to the dashboard through Garmin Connect. (complete the first element of the user story)
 
 
-## the package introduction
+## The package introduction
 
 - /src/data/models.tsx: provide data interface and initialize all the data
 - /src/layout/DrawerRouterContainer.tsx: design a dashboard banner(including user avatar, router info, etc)
