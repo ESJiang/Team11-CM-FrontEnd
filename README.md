@@ -1,8 +1,7 @@
 ## Project Name & Pitch
 Team11-CM-FrontEnd
 
-This is a unimelb software project of subject COMP90082. This repositoary aims to design a single front-end
-and connect the back-end and do data visualization. Data collected in Garmin Connect is acquired through Garmin wearable. devices used by athletes training under CoachingMate. This project was bootstrapped with Create React App and built with Kendo framework. This the master branch of our project.
+This is a software project of subject COMP90082 at The University of Melbournesity of Melbo. The repository aims to design a single front-end and connect the backend and do data visualization. This project was bootstrapped with Create React App and built with Kendo framework. This the master branch of our project.
 
 
 ## Project Status
@@ -11,7 +10,8 @@ This project is currently in development.
 
 1. provide an initial design of the layout
 2. connect and retrieve data from the backend
-3. User can choose to connect my Garmin watch to the dashboard through Garmin Connect.(complete the first element of the user story)
+3. User can choose to connect the Garmin watch to the dashboard through Garmin Connect. (complete the first element of the user story)
+
 
 ## the package introduction
 
@@ -43,3 +43,4 @@ To run:
 
 `npm start` or
 `yarn start`
+
