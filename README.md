@@ -8,8 +8,8 @@ This is a software project of subject COMP90082 at The University of Melbourne. 
 
 This project is currently in development.
 
-1. provide an initial design of the layout
-2. connect and retrieve data from the backend
+1. Provide an initial design of the layout
+2. Connect and retrieve data from the backend
 3. User can choose to connect the Garmin watch to the dashboard through Garmin Connect. (complete the first element of the user story)
 
 
