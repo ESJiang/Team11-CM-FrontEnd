@@ -70,7 +70,7 @@ class Login extends Component {
                     <div className="m-4">
                         <h2>Welcome to CM Dashboard</h2>
                         <div className="pt-md-3">
-                            <p className="d-inline">Username</p>{' '}
+                            <p className="d-inline">Username:</p>{' '}
                         <input
                             className="d-inline"
                             name="username"
@@ -82,7 +82,7 @@ class Login extends Component {
                         />
                         </div>
                         <div className="py-md-3">
-                        <p className="d-inline">Password</p>{' '}
+                        <p className="d-inline">Password:</p>{' '}
                         <input
                             className="d-inline"
                             name="password"
