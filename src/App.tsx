@@ -3,7 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import DrawerRouterContainer from "./layout/DrawerRouterContainer";
 import Dashboard from "./Dashboard";
 import Home from "./Home";
-import Login from "./login";
+import Login from "./Login";
 import "./styles/_App.scss";
 
 export default function App() {

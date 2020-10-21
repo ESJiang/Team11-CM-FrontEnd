@@ -1,13 +1,10 @@
 import React from "react";
-//import { useHistory } from "react-router";
-//import PropTypes from 'prop-types';
 import { Form, Field, FormElement } from "@progress/kendo-react-form";
 import { Error } from "@progress/kendo-react-labels";
-//import { user } from "./layout/DrawerRouterContainer";
 import { Input } from "@progress/kendo-react-inputs";
-import {connectBackends}  from "./services/dataService";
-//import {browserHistory} from "./index"
+import { value, CustomNodeJsGlobal } from "./data/models";
 
+declare var global: CustomNodeJsGlobal;
 
 const newInput = (fieldRenderProps) => {
     const { validationMessage, visited, ...others } = fieldRenderProps;
@@ -22,24 +19,49 @@ const newInput = (fieldRenderProps) => {
 };
 
 
-export default class Login extends React.Component {
+export default class Login extends React.Component<{},value> {
     constructor(props) {
         super(props);
         this.state = {
             username:''
         };
     }
-    clickEvent = (e) => {
-        connectBackends('http://localhost:8080/login?username='+e.username+'&password='+e.password).then((data)=>{
-            this.setState({username:data})
+    ClickEvent = (e) => {
+            fetch("http://localhost:8080/login?username="+e.username+"&password="+e.password,{
+                method: "post",
+                headers:
+                {
+                'Accept': "application/json",
+                "Content-Type": "application/json, charset=UTF-8",
+                "Access-Control-Allow-Origin": "*",
+                'Access-Control-Allow-Headers': 'Origin, Content-Type, X-Auth-Token',
+                'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS'
+                },
+                body:JSON.stringify({
+                    'username': e.username,
+                    'password': e.password})
+                ,
+            }
+        )
+        .then((res) => res.json())
+        .then((jsondata)=>{
+            console.log(jsondata)
+            this.setState({username:jsondata['username']})
+        })
+        .catch((error)=>{
+            console.error(error);
         })
         window.location.href="/Home"
+    }
+
+    componentDidUpdate(){
+        global.name = this.state.username;
     }
 
     render(){
         return (
             <Form
-            onSubmit={this.clickEvent}
+            onSubmit={this.ClickEvent}
             render={(formRenderProps) => (
                 <FormElement
                 style={{
@@ -51,6 +73,7 @@ export default class Login extends React.Component {
                 <fieldset className={"k-form-fieldset"}>
                 <legend>
                 <i>Please fill in the fields:</i>
+                <p>{this.state.username}</p>
                 </legend>
                 <div className="mb-3">
                 <Field
@@ -58,7 +81,7 @@ export default class Login extends React.Component {
                 component={newInput}
                 label={"username"}
                 validator={(value) =>
-                    new RegExp(/abc/).test(value)
+                    new RegExp(/a/).test(value)
                     ? ""
                     : "Please enter a valid Username."
                 }
@@ -71,7 +94,7 @@ export default class Login extends React.Component {
                 type={"password"}
                 label={"password"}
                 validator={(value) =>
-                    new RegExp(/123/).test(value)
+                    new RegExp(/1/).test(value)
                     ? ""
                     : "Please enter a valid Password."
                 }

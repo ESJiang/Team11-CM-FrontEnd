@@ -1,4 +1,11 @@
-//import { TooltipPoint } from "@progress/kendo-react-charts";
+export interface CustomNodeJsGlobal extends NodeJS.Global {
+    name: string,
+    img_url: string
+}
+
+export interface value{
+  username: string;
+}
 
 export interface FundInfo {
   managers: [
