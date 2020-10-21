@@ -4,6 +4,7 @@ import "./styles/_home.scss";
 import { Button } from 'react-bootstrap';
 import axios from 'axios';
 import Qs from 'qs';
+import DrawerRouterContainer from "./layout/DrawerRouterContainer";
 
 export default class Home extends React.Component <{}, { username: string, redirect: string}>{
     
@@ -54,7 +55,7 @@ export default class Home extends React.Component <{}, { username: string, redir
 
     render(){
         return (
-            <div>
+            <DrawerRouterContainer>
                  <img className="rounded-lg background-pic" src="/3.jpg" alt="bgPic"/>
                 <div
                     className="p-md-4 rounded-lg welcome-wrapper"
@@ -108,6 +109,6 @@ export default class Home extends React.Component <{}, { username: string, redir
                     
                 </div>
 
-            </div>
+            </DrawerRouterContainer>
         );
 }}
