@@ -67,7 +67,7 @@ export default class Home extends React.Component <{}, { username: string, redir
                     <h2>
                         <b>Welcome to Garmin Dashboard</b>
                     </h2>
-                    <h4>
+                    <h4>Today is {' '}
                     {new Date().getDate()}/{new Date().getMonth() + 1}/
                         {new Date().getFullYear()}
                     </h4>

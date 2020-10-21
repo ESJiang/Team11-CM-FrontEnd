@@ -1,5 +1,7 @@
 import React, {Component} from "react";
 import axios from "axios";
+import { Button } from 'react-bootstrap';
+import "./styles/_home.scss";
 import DrawerRouterContainer from "./layout/DrawerRouterContainer";
 
 
@@ -58,25 +60,49 @@ class Login extends Component {
     render(){
         return(
             <div>
-                <h2>Welcome to CM Dashboard</h2>
-                <input
-                    name="username"
-                    type="username"
-                    onChange={this.handleChange}
-                    // placeholder="please input your username"
-                    value={this.state.username}
-                    required
-                /><br></br>
-                <input
-                    name="password"
-                    type="password"
-                    // placeholder="please input your password"
-                    value={this.state.password}
-                    onChange={this.handleChange}
-                    required
-                /><br></br>
-                <button type="submit"
-                onClick={this.handleSubmit}> Log in </button>
+                <img className="rounded-lg background-pic" src="/1.jpg" alt="bgPic"/>
+                    <div
+                        className="p-md-4 rounded-lg login-wrapper"
+                        style={{
+                            backgroundColor: "#C7EDCC",
+                        }}
+                    >
+                    <div className="m-4">
+                        <h2>Welcome to CM Dashboard</h2>
+                        <div className="pt-md-3">
+                            <p className="d-inline">Username</p>{' '}
+                        <input
+                            className="d-inline"
+                            name="username"
+                            type="username"
+                            onChange={this.handleChange}
+                            // placeholder="please input your username"
+                            value={this.state.username}
+                            required
+                        />
+                        </div>
+                        <div className="py-md-3">
+                        <p className="d-inline">Password</p>{' '}
+                        <input
+                            className="d-inline"
+                            name="password"
+                            type="password"
+                            // placeholder="please input your password"
+                            value={this.state.password}
+                            onChange={this.handleChange}
+                            required
+                        />
+                        </div>
+                        <Button 
+                        type="submit"
+                        variant="success"
+                        className="button-home"
+                        onClick={this.handleSubmit}
+                        > 
+                            Log in 
+                        </Button>
+                </div>
+                </div>
             </div>
         
         )
