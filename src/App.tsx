@@ -1,15 +1,15 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import DrawerRouterContainer from "./layout/DrawerRouterContainer";
+// import DrawerRouterContainer from "./layout/DrawerRouterContainer";
 import Dashboard from "./Dashboard";
 import Home from "./Home";
-import Login from "./Login";
+import Login from "./Login.js";
 import "./styles/_App.scss";
 
 export default function App() {
   return (
     <BrowserRouter>
-      <DrawerRouterContainer>
+      {/* <DrawerRouterContainer> */}
         <div className="page-container">
           <Switch>
             <Route exact path="/">
@@ -23,7 +23,7 @@ export default function App() {
             </Route>
           </Switch>
         </div>
-      </DrawerRouterContainer>
+      {/* </DrawerRouterContainer> */}
     </BrowserRouter>
   );
 }

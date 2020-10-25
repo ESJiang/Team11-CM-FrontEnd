@@ -1,6 +1,7 @@
 ## Project Name & Pitch
 Team11-CM-FrontEnd
 
+<<<<<<< HEAD
 This is a software project of subject COMP90082 at The University of Melbourne. The repository aims to design a single front-end and do data visualization from the back-end. This project was bootstrapped with Create React App and built with Kendo framework. This the master branch of our project.
 
 
@@ -44,3 +45,8 @@ To run:
 `npm start` or
 `yarn start`
 
+=======
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+This Branch is created for implementing User Story ID 01. (As an athlete user, I can choose to connect my Garmin watch to the dashboard through Garmin Connect.)
+>>>>>>> 60d19a35468fdf8714be95d1ab122e80b5af0ce0

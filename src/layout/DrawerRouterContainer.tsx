@@ -14,7 +14,7 @@ global.img_url = 'https://avatars2.githubusercontent.com/u/34351424?s=460&v=4'
 
 const items = [
   {
-    text: "Login",
+    text: "Logout",
     icon: "k-i-login",
     route: "/",
     children: null,
@@ -78,8 +78,8 @@ const DrawerRouterContainer = (props: React.PropsWithChildren<any>) => {
                   <a className="a" href="/">
                     Garmin Dashboard
                   </a>
-                  <span className="divider">|</span>
-                  <span className="fund">{items[selectedId].text}</span>
+                  {/* <span className="divider">|</span> */}
+                  {/* <span className="fund">{items[selectedId].text}</span> */}
                 </span>
               </span>
               <div className="dropdown">

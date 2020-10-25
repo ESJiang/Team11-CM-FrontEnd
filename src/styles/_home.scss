@@ -1,8 +1,18 @@
 .welcome-wrapper{
     background-color: "#C7EDCC";
+    width: 50%;
+    position: absolute;
+	left: 25%;
+    top: 25%;
+    opacity: 0.8;
+}
+
+.login-wrapper{
+    text-align: center;
+    background-color: "#C7EDCC";
     width: 40%;
     position: absolute;
-    left: 30%;
+	left: 30%;
     top: 30%;
     opacity: 0.8;
 }
@@ -11,8 +21,9 @@
     width: 100%;
     opacity: 0.5;
 }
+
 .button-home{
-    width: 250px;
+    width: 280px;
 }
 
 
