@@ -13,7 +13,7 @@ class Login extends Component {
         this.state={
             username: "",
             password: "",
-            user:""
+            // user:""
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -46,10 +46,14 @@ class Login extends Component {
         )
         .then((res)=>{
             console.log("response",res)
-            this.setState({user: res.data})
-            console.log('user is ',this.state.user)
+            // this.setState({user: res.data})
+            // console.log('user is ',this.state.user)
             // redirect to home page
-            this.props.history.push('/Home')
+            this.props.history.push({
+                pathname:'/Home',
+                state: {user: res.data,
+                        username: res.data.username}
+            })
         })
         .catch(error=>
             console.log("error", error))
