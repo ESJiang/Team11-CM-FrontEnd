@@ -3,6 +3,7 @@ import axios from "axios";
 import { Button } from 'react-bootstrap';
 import "./styles/_home.scss";
 import DrawerRouterContainer from "./layout/DrawerRouterContainer";
+import {withRouter} from "react-router-dom";
 
 
 class Login extends Component {
@@ -11,7 +12,8 @@ class Login extends Component {
 
         this.state={
             username: "",
-            password: ""
+            password: "",
+            user:""
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,34 +25,31 @@ class Login extends Component {
     }
 
     handleSubmit(){
-        // const {username, password} = this.state;
         console.log("1234567", this.state.password);
+        let bodyFormData = new FormData();
+        bodyFormData.set('username',this.state.username);
+        bodyFormData.set('password', this.state.password);
 
         axios({
                 method: "post",
-                url: "http://localhost:8080/login",
-                // url:"https://coachingmate-backend2020.herokuapp.com/login",
+                // url: "http://localhost:8080/login",
+                url:"https://coachingmate-backend2020.herokuapp.com/login",
                 headers: {
                     // "Accept": 'application/json',
                     // "Content-Type": "application/json",
                     "Access-Control-Allow-Origin": "*",
                      
                 },
-                data:{
-                    username: this.state.username,
-                    password: this.state.password,
-                },
+                data: bodyFormData,
                 // mode: "no-cors",
-                
             }
         )
         .then((res)=>{
-            // res.set('Access-Control-Allow-Origin','*');
-            // res.header("Access-Control-Allow-Origin", "*");
-            // res.header("Access-Control-Allow-Credentials", "true");
-            // res.header("Access-Control-Allow-Methods", "GET,POST");
-            // res.header('Access-Control-Allow-Headers', 'Origin, Content-Type');
             console.log("response",res)
+            this.setState({user: res.data})
+            console.log('user is ',this.state.user)
+            // redirect to home page
+            this.props.history.push('/Home')
         })
         .catch(error=>
             console.log("error", error))
@@ -110,4 +109,4 @@ class Login extends Component {
 
 }
 
-export default Login;
+export default withRouter(Login);
