@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 import "./styles/_home.scss";
 import DrawerRouterContainer from "./layout/DrawerRouterContainer";
 import {withRouter} from "react-router-dom";
-
+import {Alert, AlertTitle} from '@material-ui/lab';
 
 class Login extends Component {
     constructor(props){
@@ -13,6 +13,7 @@ class Login extends Component {
         this.state={
             username: "",
             password: "",
+            isShow: false,
             // user:""
         }
         this.handleChange = this.handleChange.bind(this);
@@ -22,6 +23,10 @@ class Login extends Component {
 
     handleChange (e) {
         this.setState({[e.target.name]: e.target.value})
+    }
+
+    handleClose = (e) => {
+        this.setState({isShow : false})
     }
 
     handleSubmit(){
@@ -55,8 +60,12 @@ class Login extends Component {
                         username: res.data.username}
             })
         })
-        .catch(error=>
-            console.log("error", error))
+        .catch((error)=> {
+            this.setState({isShow : true})
+            console.log("error", error)
+            
+        })
+
     }
 
 
@@ -104,7 +113,10 @@ class Login extends Component {
                         > 
                             Log in 
                         </Button>
-                </div>
+                    </div>
+
+                    {this.state.isShow? <Alert severity="warning">
+                        Oops! Invalid username or password! Please try again:) </Alert> : null}
                 </div>
             </div>
         
