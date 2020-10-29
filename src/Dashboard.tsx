@@ -23,6 +23,7 @@ const Dashboard = (props)=> {
     let username;
     let obj;
     let elements=[];
+    const[isShow, setIsShow] = useState(false);
     const[avg_speed, setAvg_speed] =useState([] as any);
     const[start_time, setStart_time] =useState([] as any);
     const[total_calories, setTotal_calories] = useState([] as any);
@@ -80,20 +81,20 @@ const Dashboard = (props)=> {
                 setTotal_distance(total_distance => [...total_distance, ' { Activity ' + key ,': ', (obj[key].total_distance)+' }']);
                 setTotal_elapesd_time(total_elapesd_time => [...total_elapesd_time, ' { Activity ' + key ,': ', (obj[key].total_elapesd_time)+' }']);
 
-
                 console.log('hello', avg_speed);
                 console.log('hello', elements);
                 let i = obj[key];
                 Object.keys(i).map(items =>{
                     setActivities(activities => [...activities, ' { Activity '+ key, items+': '+i[items]+' }']);
                 })
-                
+
             });
 
+            if(avg_speed.length == 0){setIsShow(true)}
+
         })
-           .catch(error=>
-            // this.setState({isShow : true})
-            console.log("error", error))
+           .catch(error=>{
+            console.log("error", error)});
         
     }
 
@@ -136,7 +137,10 @@ const Dashboard = (props)=> {
                     Return to home page
                 </Button>
 
-                {start_time.length !==0 ? 
+                {isShow ?  (
+                    <Alert severity="warning">
+                            Oops! Seems you haven't uploaded any activity yet! 
+                    </Alert>):
                     (<div className="mx-4 my-2">
                         <><AccessAlarmsIcon className="d-inline pb-2" fontSize="large" /><h3 className="d-inline"> Start time:</h3></>
                         <p>{start_time}</p>
@@ -153,13 +157,8 @@ const Dashboard = (props)=> {
                         
                         <><FitnessCenterIcon className="d-inline pb-2" fontSize="large" /><h3 className="d-inline"> Your Activity Data:</h3></>
                         <p>{activities.toString()}</p>
-                    </div>) : (
-                    <Alert severity="warning">
-                            Oops! Seems you haven't uploaded any activity yet! 
-                    </Alert>)
+                    </div>) 
                 }
-
-            
             </div>
         </DrawerRouterContainer>)
     );
