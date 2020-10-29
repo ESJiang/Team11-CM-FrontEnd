@@ -15,6 +15,11 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 // import { Link } from "react-router-dom";
 import { string } from "prop-types";
 import {withRouter} from "react-router-dom";
+import CameraIcon from '@material-ui/icons/Camera';
+import DirectionsBikeIcon from '@material-ui/icons/DirectionsBike';
+import EventAvailableIcon from '@material-ui/icons/EventAvailable';
+import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied';
+import TelegramIcon from '@material-ui/icons/Telegram';
 
 
 const Home = (props) => {
@@ -101,9 +106,10 @@ const Home = (props) => {
             >
                 <div className="m-4">
                 <h2>
+                    <DirectionsBikeIcon className="m-2"/>
                     <b>Hello {username}, Welcome to Garmin Dashboard</b>
                 </h2>
-                <h4>Today is {' '}
+                <h4> <EventAvailableIcon className="m-2" />Today is {' '}
                 {new Date().getDate()}/{new Date().getMonth() + 1}/
                     {new Date().getFullYear()}
                 </h4>
@@ -120,7 +126,7 @@ const Home = (props) => {
                 
 
                 <h4 >Would you like to give permission to your Garmin Connect account?</h4>
-                <p>If we cannot connect to your Garmin account, this may affect your experience.</p>
+                <p>If we cannot connect to your Garmin account, this may affect your experience. <SentimentDissatisfiedIcon /></p>
                 <div className="row">
                     <div className="col">
                         <Button
@@ -142,7 +148,7 @@ const Home = (props) => {
                     </div>
                 </div>
 
-                <p className="my-4">If you have given permission to us, you can view your data on dashboard! </p>
+                <p className="my-4">If you have given permission to us, you can view your data on dashboard! <TelegramIcon /></p>
                 <Button 
                     variant="info"
                     className="button-home"

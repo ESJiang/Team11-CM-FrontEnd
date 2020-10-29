@@ -5,6 +5,9 @@ import "./styles/_home.scss";
 import DrawerRouterContainer from "./layout/DrawerRouterContainer";
 import {withRouter} from "react-router-dom";
 import {Alert, AlertTitle} from '@material-ui/lab';
+import EcoRoundedIcon from '@material-ui/icons/EcoRounded';
+import FaceRoundedIcon from '@material-ui/icons/FaceRounded';
+import HttpsRoundedIcon from '@material-ui/icons/HttpsRounded';
 
 class Login extends Component {
     constructor(props){
@@ -81,9 +84,9 @@ class Login extends Component {
                         }}
                     >
                     <div className="m-4">
-                        <h2>Welcome to CM Dashboard</h2>
+                        <h2> Welcome to CM Dashboard  <EcoRoundedIcon fontSize="large" /></h2>
                         <div className="pt-md-3">
-                            <p className="d-inline">Username:</p>{' '}
+                            <h4 className="d-inline"> <FaceRoundedIcon /> Username:</h4>{' '}
                         <input
                             className="d-inline"
                             name="username"
@@ -95,7 +98,7 @@ class Login extends Component {
                         />
                         </div>
                         <div className="py-md-3">
-                        <p className="d-inline">Password:</p>{' '}
+                        <h4 className="d-inline"> <HttpsRoundedIcon /> Password:</h4>{' '}
                         <input
                             className="d-inline"
                             name="password"

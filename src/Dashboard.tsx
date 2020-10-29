@@ -8,6 +8,13 @@ import { Button } from 'react-bootstrap';
 import {withRouter} from "react-router-dom";
 import Qs from 'qs';
 import {Alert, AlertTitle} from '@material-ui/lab';
+// import SpeedIcon from '@material-ui/icons/Speed';
+import AccessAlarmsIcon from '@material-ui/icons/AccessAlarms';
+import FastForwardIcon from '@material-ui/icons/FastForward';
+import CakeIcon from '@material-ui/icons/Cake';
+import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
+import TimerIcon from '@material-ui/icons/Timer';
+import CallSplitIcon from '@material-ui/icons/CallSplit';
 
 const Dashboard = (props)=> {
 
@@ -108,13 +115,13 @@ const Dashboard = (props)=> {
             <div className="dash"
             style={{ backgroundColor: "#C7EDCC"}}>
                 <h2>
-                    <br></br>
-                    <b className="m-3">Hello {username}, you can view your activity data here!</b>
+                    <DirectionsRunIcon fontSize="large" className="m-2"/>
+                    <b>Hello {username}, you can view your activity data here!</b>
                 </h2>
 
                 <Button 
                     variant="success"
-                    className="m-3 button-home"
+                    className="mb-3 mx-3 button-home"
                     onClick={getActivity}
                     >
                         View all activity data
@@ -122,23 +129,24 @@ const Dashboard = (props)=> {
 
                 <Button 
                     variant="light"
-                    className="m-3 button-home"
+                    className="mb-3 mx-3 button-home"
                     onClick={goHome}
                     >
                     Return to home page
                 </Button>
 
                 {start_time.length !==0 ? 
-                    (<div className="m-3">
-                        <h3>Start time:</h3>
+                    (<div className="mx-4 my-2">
+                        <><AccessAlarmsIcon className="d-inline pb-2" fontSize="large" /><h3 className="d-inline"> Start time:</h3></>
                         <p>{start_time}</p>
-                        <h3>Average speed:</h3>
+                        <><FastForwardIcon className="d-inline pb-2" fontSize="large" /><h3 className="d-inline"> Average speed:</h3></>
                         <p>{avg_speed}</p>
-                        <h3>Total Calories:</h3>
+                        
+                        <><CakeIcon className="d-inline pb-2" fontSize="large" /><h3 className="d-inline"> Total Calories:</h3></>
                         <p>{total_calories}</p>
-                        <h3>Total Distance:</h3>
+                        <><CallSplitIcon className="d-inline pb-2" fontSize="large" /><h3 className="d-inline"> Total Distance:</h3></>
                         <p>{total_distance}</p>
-                        <h3>Total elapsed time:</h3>
+                        <><TimerIcon className="d-inline pb-2" fontSize="large" /><h3 className="d-inline"> Total elapsed time:</h3></>
                         <p>{total_elapesd_time}</p>
 
                         <h3>Your Activity Data:</h3>
