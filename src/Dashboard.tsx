@@ -15,6 +15,7 @@ import CakeIcon from '@material-ui/icons/Cake';
 import DirectionsRunIcon from '@material-ui/icons/DirectionsRun';
 import TimerIcon from '@material-ui/icons/Timer';
 import CallSplitIcon from '@material-ui/icons/CallSplit';
+import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 
 const Dashboard = (props)=> {
 
@@ -149,7 +150,8 @@ const Dashboard = (props)=> {
                         <><TimerIcon className="d-inline pb-2" fontSize="large" /><h3 className="d-inline"> Total elapsed time:</h3></>
                         <p>{total_elapesd_time}</p>
 
-                        <h3>Your Activity Data:</h3>
+                        
+                        <><FitnessCenterIcon className="d-inline pb-2" fontSize="large" /><h3 className="d-inline"> Your Activity Data:</h3></>
                         <p>{activities.toString()}</p>
                     </div>) : (
                     <Alert severity="warning">
