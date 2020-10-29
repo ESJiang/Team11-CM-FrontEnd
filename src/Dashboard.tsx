@@ -9,16 +9,17 @@ import {withRouter} from "react-router-dom";
 import Qs from 'qs';
 import {Alert, AlertTitle} from '@material-ui/lab';
 
-
 const Dashboard = (props)=> {
 
     const location = useLocation();
     let username;
     let obj;
     let elements=[];
-    let isShow = false;
     const[avg_speed, setAvg_speed] =useState([] as any);
     const[start_time, setStart_time] =useState([] as any);
+    const[total_calories, setTotal_calories] = useState([] as any);
+    const[total_distance, setTotal_distance] = useState([] as any);
+    const[total_elapesd_time, setTotal_elapesd_time] = useState([] as any);
     const [activities, setActivities] = useState([] as any);
 
 
@@ -67,7 +68,12 @@ const Dashboard = (props)=> {
                 // setActivities(activities => [...activities, obj[key]]);
                 setAvg_speed(avg_speed => [...avg_speed,' { Activity '+ key, ': ', (obj[key].avg_speed)+' }']);
                 setStart_time(start_time => [...start_time, ' { Activity ' + key ,': ', (obj[key].start_time)+' }']);
-                console.log('hello', avg_speed)
+                setTotal_calories(total_calories => [...total_calories, ' { Activity ' + key ,': ', (obj[key].total_calories)+' }']);
+                setTotal_distance(total_distance => [...total_distance, ' { Activity ' + key ,': ', (obj[key].total_distance)+' }']);
+                setTotal_elapesd_time(total_elapesd_time => [...total_elapesd_time, ' { Activity ' + key ,': ', (obj[key].total_elapesd_time)+' }']);
+
+
+                console.log('hello', avg_speed);
                 console.log('hello', elements);
                 let i = obj[key];
                 Object.keys(i).map(items =>{
@@ -122,12 +128,18 @@ const Dashboard = (props)=> {
                     Return to home page
                 </Button>
 
-                {start_time ? 
+                {start_time.length !==0 ? 
                     (<div className="m-3">
                         <h3>Start time:</h3>
                         <p>{start_time}</p>
                         <h3>Average speed:</h3>
                         <p>{avg_speed}</p>
+                        <h3>Total Calories:</h3>
+                        <p>{total_calories}</p>
+                        <h3>Total Distance:</h3>
+                        <p>{total_distance}</p>
+                        <h3>Total elapsed time:</h3>
+                        <p>{total_elapesd_time}</p>
 
                         <h3>Your Activity Data:</h3>
                         <p>{activities.toString()}</p>
