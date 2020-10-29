@@ -122,18 +122,20 @@ const Dashboard = (props)=> {
                     Return to home page
                 </Button>
 
-                <Alert severity="warning">
-                        Oops! Seems you haven't uploaded any activity yet! </Alert>
-                
-                <div className="m-3">
-                    <h3>Start time:</h3>
-                    <p>{start_time}</p>
-                    <h3>Average speed:</h3>
-                    <p>{avg_speed}</p>
+                {start_time ? 
+                    (<div className="m-3">
+                        <h3>Start time:</h3>
+                        <p>{start_time}</p>
+                        <h3>Average speed:</h3>
+                        <p>{avg_speed}</p>
 
-                    <h3>Your Activity Data:</h3>
-                    <p>{activities.toString()}</p>
-                </div>
+                        <h3>Your Activity Data:</h3>
+                        <p>{activities.toString()}</p>
+                    </div>) : (
+                    <Alert severity="warning">
+                            Oops! Seems you haven't uploaded any activity yet! 
+                    </Alert>)
+                }
 
             
             </div>
