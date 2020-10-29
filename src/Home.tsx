@@ -14,6 +14,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 // import { Link } from "react-router-dom";
 import { string } from "prop-types";
+import {withRouter} from "react-router-dom";
 
 
 const Home = (props) => {
@@ -22,7 +23,8 @@ const Home = (props) => {
     const [redirect, setRediret] = useState<string>();
     const [open, setOpen] = useState(false);
     // let redirect;
-    let user = props.user;
+    let user;
+    
     // let isUser = false;
 
     // if(user! == null){
@@ -37,29 +39,27 @@ const Home = (props) => {
 
     if (location.state){
     username = location.state.username;
-}
+    user = location.state.user;
+    }
 
     const handlePermission = () => {
         // console.log(this.state.username)
-        setOpen(true) 
+        setOpen(true);
+        let bodyFormData = new FormData();
+        bodyFormData.set('username', username);
         axios({
-            method: "get",
-            // url: "http://localhost:8080/auth/requestToken",
-            url:"https://coachingmate-backend2020.herokuapp.com/auth/requestToken",
-
+            method: "POST",
+            url: "https://coachingmate-backend2020.herokuapp.com/auth/requestToken",
             headers: {
                 "Access-Control-Allow-Origin": "*",
                 "Accept": 'application/json',
                 "Content-Type": "application/json",
                 "Access-Control-Allow-Methods": "POST, GET, OPTIONS, DELETE, PUT",
             },
-            data:{
-                // username: Qs.stringify(this.state.username),
-                username:location.state.username,
-            },
+            data: bodyFormData,
         }).then(function(res){
             // console.log(res.headers)
-            console.log('username is', username)
+            console.log('username is', bodyFormData)
             console.log("URL", res)
             console.log("data",res.data.url)
             // redirect = res.data.url
@@ -75,6 +75,15 @@ const Home = (props) => {
     const handleClose = () => {
         setOpen(false);
       }
+
+    const goDashboard = () =>{
+        if (username){
+            props.history.push({
+                pathname:'/Dashboard',
+                state: {username: username}
+            })
+        }
+    }
 
     return (
         <>
@@ -133,6 +142,14 @@ const Home = (props) => {
                     </div>
                 </div>
 
+                <p className="my-4">If you have given permission to us, you can view your data on dashboard! </p>
+                <Button 
+                    variant="info"
+                    className="button-home"
+                    onClick={goDashboard}
+                    >Go to dashboard
+                </Button>
+
                 </div>
 
                 {/* Tilda: the pop up box for permission*/}
@@ -166,7 +183,7 @@ const Home = (props) => {
 
 }
 
-export default Home;
+export default withRouter(Home);
 
 
 // const location = useLocation();

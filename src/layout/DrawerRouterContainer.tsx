@@ -19,18 +19,18 @@ const items = [
     route: "/",
     children: null,
   },
-  {
-    text: "Home",
-    icon: "k-i-home",
-    route: "/Home",
-    children: null,
-  },
-  {
-    text: "Dashboard",
-    icon: "k-i-dribbble",
-    route: "/Dashboard",
-    children: null,
-  },
+  // {
+  //   text: "Home",
+  //   icon: "k-i-home",
+  //   route: "/Home",
+  //   children: null,
+  // },
+  // {
+  //   text: "Dashboard",
+  //   icon: "k-i-dribbble",
+  //   route: "/Dashboard",
+  //   children: null,
+  // },
 ];
 
 const DrawerRouterContainer = (props: React.PropsWithChildren<any>) => {

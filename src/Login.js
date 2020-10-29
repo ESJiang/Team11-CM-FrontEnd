@@ -59,6 +59,7 @@ class Login extends Component {
                 state: {user: res.data,
                         username: res.data.username}
             })
+
         })
         .catch((error)=> {
             this.setState({isShow : true})
