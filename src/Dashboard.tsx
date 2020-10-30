@@ -89,8 +89,8 @@ const Dashboard = (props)=> {
                 })
 
             });
-
-            if(avg_speed.length == 0){setIsShow(true)}
+            // if(avg_speed.length == 0){setIsShow(true)}
+            if(res.data.length == 0){setIsShow(true)}
 
         })
            .catch(error=>{
