@@ -89,7 +89,7 @@ const Dashboard = (props)=> {
                 })
 
             });
-            // if(avg_speed.length == 0){setIsShow(true)}
+            // the alert
             if(res.data.length == 0){setIsShow(true)}
 
         })
@@ -146,15 +146,12 @@ const Dashboard = (props)=> {
                         <p>{start_time}</p>
                         <><FastForwardIcon className="d-inline pb-2" fontSize="large" /><h3 className="d-inline"> Average speed:</h3></>
                         <p>{avg_speed}</p>
-                        
                         <><CakeIcon className="d-inline pb-2" fontSize="large" /><h3 className="d-inline"> Total Calories:</h3></>
                         <p>{total_calories}</p>
                         <><CallSplitIcon className="d-inline pb-2" fontSize="large" /><h3 className="d-inline"> Total Distance:</h3></>
                         <p>{total_distance}</p>
                         <><TimerIcon className="d-inline pb-2" fontSize="large" /><h3 className="d-inline"> Total elapsed time:</h3></>
                         <p>{total_elapesd_time}</p>
-
-                        
                         <><FitnessCenterIcon className="d-inline pb-2" fontSize="large" /><h3 className="d-inline"> Your Activity Data:</h3></>
                         <p>{activities.toString()}</p>
                     </div>) 
